@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SelectImage</string>
+    <string name="boxing_too_many_picture_fmt">您最多只能选择%d张图片</string>
+</resources>
