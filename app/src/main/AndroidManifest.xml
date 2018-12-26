@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".recyclerview.one.LoadMoreAndEmptyActivity" />
         <activity android:name=".recyclerview.two.DifferenceRecycleActivity" />
-        <activity android:name=".view.line.BrokenLineDiagramActivity"></activity>
+        <activity android:name=".view.line.BrokenLineDiagramActivity" />
+        <activity android:name=".view.wave.WaveActivity"></activity>
     </application>
 
 </manifest>
