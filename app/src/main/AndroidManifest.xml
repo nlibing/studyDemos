@@ -20,7 +20,8 @@
         <activity android:name=".recyclerview.two.DifferenceRecycleActivity" />
         <activity android:name=".view.line.BrokenLineDiagramActivity" />
         <activity android:name=".view.wave.WaveActivity" />
-        <activity android:name=".view.doodling.DoodlingActivity"></activity>
+        <activity android:name=".view.doodling.DoodlingActivity" />
+        <activity android:name=".view.calendar.CalendarViewActivity"></activity>
     </application>
 
 </manifest>
