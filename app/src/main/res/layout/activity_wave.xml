@@ -5,8 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="dev.android.studydemo.view.wave.WaveActivity">
-<dev.android.studydemo.view.wave.WaveView
+<dev.android.studydemo.view.wave.java.WaveView
     android:id="@+id/wv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="300dp" />
+    <dev.android.studydemo.view.wave.kt.KtWaveView
+        android:id="@+id/kt_wv"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
 </LinearLayout>

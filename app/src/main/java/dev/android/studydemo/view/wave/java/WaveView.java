@@ -1,4 +1,4 @@
-package dev.android.studydemo.view.wave;
+package dev.android.studydemo.view.wave.java;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
