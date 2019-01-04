@@ -1,4 +1,4 @@
-package dev.android.studydemo.view.line;
+package dev.android.studydemo.view.line.java;
 
 import android.content.Context;
 import android.graphics.Canvas;
