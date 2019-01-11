@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,10 +15,22 @@
        android:text="上拉加载+空状态"/>
    <TextView
        android:id="@+id/tv_demo_two"
-       android:layout_width="match_parent"
-       android:layout_height="45dp"
-       android:gravity="center"
-       android:background="#f1f1f1"
-       android:layout_marginTop="1dp"
+       style="@style/template"
        android:text="item显示类型不一"/>
+   <TextView
+       android:id="@+id/tv_demo_three"
+       android:text="基础日历模板"
+       style="@style/template" />
+   <TextView
+       android:id="@+id/tv_demo_four"
+       android:text="折线图"
+       style="@style/template" />
+   <TextView
+       android:id="@+id/tv_demo_five"
+       android:text="波浪线"
+       style="@style/template" />
+   <TextView
+       android:id="@+id/tv_demo_six"
+       android:text="組合控件"
+       style="@style/template" />
 </LinearLayout>

@@ -21,7 +21,8 @@
         <activity android:name=".view.line.BrokenLineDiagramActivity" />
         <activity android:name=".view.wave.WaveActivity" />
         <activity android:name=".view.doodling.DoodlingActivity" />
-        <activity android:name=".view.calendar.CalendarViewActivity"></activity>
+        <activity android:name=".view.calendar.CalendarViewActivity" />
+        <activity android:name=".combinationView.CombinationActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package dev.android.studydemo.view.calendar;
+package dev.android.studydemo.view.calendar.java;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,28 +7,31 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Calendar;
 
 /**
- * Created by Administrator on 2018/12/28.
+ * Created by Administrator on 2018/12/27.
  * user: Administrator
- * date: 2018/12/28
- * time; 17:23
- * name: 基础日历
+ * date: 2018/12/27
+ * time; 15:10
+ * name: 日历
  */
 public class CalendarView extends View {
     private String[] week = new String[]{"日", "一", "二", "三", "四", "五", "六"};
     //农历月份
     private Path linePath;
-    private Paint linePaint;//线
-    private Paint weekPaint;//星期
-    private Paint surplusPaint;//补全天数
-    private int nowYear;//当前年
-    private int nowMonth;//当前月份
+    private Paint linePaint;
+    private Paint weekPaint;
+    private Paint surplusPaint;
+    private int nowYear;
+    private int nowMonth;
     private int multipleX;
     private int multipleY;
+    private int downX;
+    private int downY;
     Paint.FontMetricsInt surplusPaintMetrics;
     public CalendarView(Context context) {
         super(context);
@@ -77,6 +80,18 @@ public class CalendarView extends View {
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                downX= (int) event.getX();
+                downY= (int) event.getY();
+                invalidate();
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         multipleX = getWidth() / 7;
@@ -112,8 +127,28 @@ public class CalendarView extends View {
                 //当前还有空余位置则显示下一个月的日期
                 addSurplusDay(day, canvas, num);
             }
-            canvas.drawText(i + 1 + "", day * multipleX + multipleX / 2, (multipleY - fontMetrics.bottom - fontMetrics.top) / 2 + multipleY * num, weekPaint);
+            if(downX>day*multipleX&&downX<(day+1)*multipleX
+                    &&downY>num*multipleY&&downY<(num+1)*multipleY){
+                weekPaint.setColor(Color.BLUE);
+                //选中效果
+                canvas.drawCircle(day * multipleX + multipleX / 2,
+                        multipleY/ 2 + multipleY * num,
+                        25,weekPaint);
+                canvas.drawText(i + 1 + "",
+                        day * multipleX + multipleX / 2,
+                        (multipleY - fontMetrics.bottom - fontMetrics.top) / 2 + multipleY * num,
+                        weekPaint);
+                CalendarUtils.getLunarDateINT(nowYear,nowMonth,(i+1));
+                CalendarUtils.getLunarString(nowYear,nowMonth,(i+1));
+            }else {
+                weekPaint.setColor(Color.BLACK);
+                //公历显示
+                canvas.drawText((i + 1 )+"",
+                        day * multipleX + multipleX / 2,
+                        (multipleY - fontMetrics.bottom - fontMetrics.top) / 2 + multipleY * num,
+                        weekPaint);
 
+            }
         }
         canvas.drawPath(linePath, linePaint);
     }
@@ -220,4 +255,8 @@ public class CalendarView extends View {
         a.roll(Calendar.DATE, -1);//日期回滚一天，也就是最后一天
         return a.get(Calendar.DATE);
     }
+
+
+
+
 }

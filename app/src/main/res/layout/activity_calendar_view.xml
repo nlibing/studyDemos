@@ -30,7 +30,7 @@
             android:gravity="center"
             android:text="下一个月"/>
     </LinearLayout>
-    <dev.android.studydemo.view.calendar.CalendarView
+    <dev.android.studydemo.view.calendar.java.CalendarView
         android:id="@+id/cdv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
